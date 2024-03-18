@@ -21,12 +21,14 @@ $(document).on("touchstart", function () {
 });
 
 $(".btn").on("click touchstart", function () {
-  var userChosenColours = $(this).attr("id");
-  userClickedPattern.push(userChosenColours);
+  if (started) {
+    var userChosenColours = $(this).attr("id");
+    userClickedPattern.push(userChosenColours);
 
-  playSound(userChosenColours);
-  animatePress(userChosenColours);
-  checkAnswer(userClickedPattern.length - 1);
+    playSound(userChosenColours);
+    animatePress(userChosenColours);
+    checkAnswer(userClickedPattern.length - 1);
+  }
 });
 
 function checkAnswer(curretLevel) {
